@@ -1,15 +1,37 @@
 import React, { Component } from 'react'
 import CanvasSquare from './CanvasSquare'
-import { GridList, Container } from '@material-ui/core'
+import { Container } from '@material-ui/core'
 
 export default class Canvas extends Component {
     render() {
         return (
-                <GridList>
-                    <CanvasSquare />
-                    <CanvasSquare />
-                    <CanvasSquare />
-                </GridList>
+            <div className='grid'>
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+                <CanvasSquare />
+            </div>
         )
     }
 }

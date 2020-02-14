@@ -1,10 +1,9 @@
 import React from 'react'
+import { GridListTile } from '@material-ui/core'
 
 function CanvasSquare() {
     return (
-        <div style={{'border' : '2px solid black'}}>
-            CSqaure
-        </div>
+            <button className='csquare'>CSquare</button>
     )
 }
 

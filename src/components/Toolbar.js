@@ -1,7 +1,7 @@
 import React from 'react'
 import Tools from './Tools'
 import { CirclePicker } from 'react-color'
-import { Container, TextField } from '@material-ui/core'
+import { Container, TextField} from '@material-ui/core'
 
 export default function Toolbar() {
     return (
@@ -10,7 +10,9 @@ export default function Toolbar() {
             <Tools />
             <CirclePicker />
             <form>
-                <label> Canvas Size: </label> 
+                <label> Canvas Rows: </label> 
+                <TextField variant='filled' type='number' />
+                <label> Canvas Columns: </label> 
                 <TextField variant='filled' type='number' />
             </form>
         </Container>

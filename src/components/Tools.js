@@ -5,7 +5,7 @@ function Tools() {
     return (
         <div>
             <ButtonGroup variant='contained' size='large'>
-                <Button default>Pencil</Button>
+                <Button>Pencil</Button>
                 <Button>Flood-Fill</Button>
             </ButtonGroup>
         </div>

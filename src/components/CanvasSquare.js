@@ -2,8 +2,8 @@ import React from 'react'
 
 function CanvasSquare() {
     return (
-        <div>
-            
+        <div style={{'border' : '2px solid black'}}>
+            CSqaure
         </div>
     )
 }

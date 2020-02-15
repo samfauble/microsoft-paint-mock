@@ -1,22 +1,26 @@
 import React from 'react'
 import Tools from './Tools'
+import CanvasSize from './CanvasSize'
 import { CirclePicker } from 'react-color'
-import { Container, TextField} from '@material-ui/core'
+import { Container } from '@material-ui/core'
+import { connect } from 'react-redux'
+import color from '../actions/color'
 
-export default function Toolbar() {
+export function Toolbar({dispatch}) {
+
+    //CHANGE_COLOR
+    const handleColorChange = () => {
+        dispatch(color('white'))
+    }
+
     return (
         <Container>
             <h1>Mock Paint</h1>
             <Tools />
             <CirclePicker />
-            <form>
-                <label> Canvas Rows: </label> 
-                <TextField variant='filled' type='number' />
-                <label> Canvas Columns: </label> 
-                <TextField variant='filled' type='number' />
-            </form>
+            <CanvasSize />
         </Container>
     )
 }
 
-
+export default connect()(Toolbar)

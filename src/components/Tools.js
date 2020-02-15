@@ -1,7 +1,14 @@
 import React from 'react'
 import { Button, ButtonGroup } from '@material-ui/core'
+import { connect } from 'react-redux'
+import tool from '../actions/tool'
 
-function Tools() {
+function Tools({dispatch}) {
+    //CHANGE_TOOL
+    const handleToolChange = () => {
+        dispatch(tool('pencil'))
+    }
+
     return (
         <div>
             <ButtonGroup variant='contained' size='large'>
@@ -12,4 +19,4 @@ function Tools() {
     )
 }
 
-export default Tools
+export default connect()(Tools)

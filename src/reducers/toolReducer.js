@@ -3,19 +3,17 @@ import { CHANGE_COLOR } from '../actions/color'
 
 
 function toolReducer(state={}, action) {
-    switch(action) {
+    switch(action.type) {
         case CHANGE_COLOR:
-           const {color}=action 
             return {
                 ...state,
-                color: color
+                currentColor: action.color
             }
 
         case CHANGE_TOOL:
-            const {tool}=action
             return {
                 ...state,
-                tool: tool
+                currentTool: action.tool
             }
 
         default:

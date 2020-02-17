@@ -15,7 +15,7 @@ function App() {
 
 export default App;
 
-//TODO: Implement global state
+//TODO: Implement color change functionality
 //TODO: Implement Canvas size functionality
 //TODO: Implement Pencil funcitonality 
 //TODO: Implement flood-fill funcitonality

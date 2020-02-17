@@ -4,20 +4,21 @@ import CanvasSize from './CanvasSize'
 import { CirclePicker } from 'react-color'
 import { Container } from '@material-ui/core'
 import { connect } from 'react-redux'
-import color from '../actions/color'
+import currentColor from '../actions/color'
 
-export function Toolbar({dispatch}) {
+export function Toolbar({dispatch}, tool) {
 
+    const {color}=tool
     //CHANGE_COLOR
-    const handleColorChange = () => {
-        dispatch(color('white'))
+    const handleColorChange = (colorString) => {
+        dispatch(currentColor(colorString.hex))
     }
 
     return (
         <Container>
             <h1>Mock Paint</h1>
             <Tools />
-            <CirclePicker />
+            <CirclePicker value={color} onChangeComplete={handleColorChange} />
             <CanvasSize />
         </Container>
     )

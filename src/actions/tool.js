@@ -1,10 +1,10 @@
 export const CHANGE_TOOL = 'CHANGE_TOOL'
 
-function tool(tool) {
+function toolChange(tool) {
     return {
         type: CHANGE_TOOL,
-        tool: tool
+        tool
     }
 }
 
-export default tool
+export default toolChange

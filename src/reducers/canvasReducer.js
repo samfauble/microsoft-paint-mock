@@ -4,36 +4,20 @@ import {CHANGE_COLUMN} from '../actions/column';
 function canvasReducer(state={}, action) {
     switch(action.type) {
         case CHANGE_ROW:
-            const {row} = action
+            let {row, squares} = action
+            console.log(row)
             return {
                 ...state,
-                    numRows: row
+                    numRows: row,
+                    squares
             }
 
         case CHANGE_COLUMN:
-            const {column} = action
+            let {column, columnSquares} = action
             return {
                 ...state,
-                numColumns: column
-            }
-
-        case CHANGE_ROW, CHANGE_COLUMN:
-            const {numRows, numColumns} = state
-            const squareNum = numRows*numColumns
-            const squareArray = []
-            const squareLoop = () => {                  //Populate list of squares on the canvas
-                for(let i=0; i<=squareNum-1; i++){
-                    let sq = {
-                        id: i,
-                        color: 'white',
-                        nextTo: [i-1, i+1, i-numColumns, i+numColumns]
-                    }
-                    squareArray.concat(sq);
-                }
-            }
-            return {
-                ...state,
-                canvasSquares: squareArray
+                numColumns: column,
+                squares: columnSquares
             }
 
         default:

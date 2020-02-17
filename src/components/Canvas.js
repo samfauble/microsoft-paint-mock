@@ -1,16 +1,19 @@
-import React, { Component } from 'react'
-import { Container } from '@material-ui/core'
+import React from 'react'
 import { connect } from 'react-redux'
 
 
-export function Canvas() {
-   
+export function Canvas(canvas) {
+    const {numRows, numColumns} = canvas
+
     //Needed state: Canvas rows, Canvas columns, id & color of each square, current tool, current color
         return (
             <div className='grid'
-                style={{'gridTemplateColumns': `repeat(5, 100px)`,
-                        'gridTemplateRows': `repeat(5, 100px)`,}}
+                style={{
+                    gridTemplateColumns: `repeat(${numColumns}, 100)`,
+                    gridTemplateRows: `repeat(${numRows}, 100)`
+                }}
             >
+
                 <button className='csquare'>CSquare</button>
                 <button className='csquare'>CSquare</button>
                 <button className='csquare'>CSquare</button>
@@ -35,7 +38,7 @@ export function Canvas() {
                 <button className='csquare'>CSquare</button>
                 <button className='csquare'>CSquare</button>
                 <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
+            <button className='csquare'>CSquare</button>
             </div>
         )
 }

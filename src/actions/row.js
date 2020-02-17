@@ -1,10 +1,11 @@
 export const CHANGE_ROW = 'CHANGE_ROW'
 
-function row(numRows) {
+function rowNum(numRows, rowSquares) {
     return {
         type: CHANGE_ROW,
-        row: numRows
+        row: numRows,
+        squares: rowSquares
     }
 }
 
-export default row
+export default rowNum

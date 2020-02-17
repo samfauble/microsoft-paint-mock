@@ -1,10 +1,10 @@
 export const CHANGE_COLOR = 'CHANGE_COLOR'
 
-function color(color) {
+function currentColor(color) {
     return {
         type: CHANGE_COLOR,
-        color: color
+        color
     }
 }
 
-export default color
+export default currentColor

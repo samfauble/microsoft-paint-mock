@@ -1,19 +1,20 @@
 import React from 'react'
-import { Button, ButtonGroup } from '@material-ui/core'
+import { ButtonGroup, Button } from '@material-ui/core'
 import { connect } from 'react-redux'
-import tool from '../actions/tool'
+import toolChange from '../actions/tool'
 
-function Tools({dispatch}) {
+function Tools({dispatch}, tool) {
+
     //CHANGE_TOOL
-    const handleToolChange = () => {
-        dispatch(tool('pencil'))
+    const handleToolChange = (newTool) => {
+        dispatch(toolChange(newTool))
     }
 
     return (
         <div>
-            <ButtonGroup variant='contained' size='large'>
-                <Button>Pencil</Button>
-                <Button>Flood-Fill</Button>
+            <ButtonGroup>
+                <Button onClick={()=>handleToolChange('pencil')}>Pencil</Button>
+                <Button onClick={()=>handleToolChange('flood')}>Flood-Fill</Button>
             </ButtonGroup>
         </div>
     )

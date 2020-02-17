@@ -1,10 +1,11 @@
 export const CHANGE_COLUMN = 'CHANGE_COLUMN'
 
-function column(numColumns) {
+function columnNum(numColumns, columnSquares) {
     return {
         type: CHANGE_COLUMN,
-        column: numColumns
+        column: numColumns,
+        squares: columnSquares
     }
 }
 
-export default column
+export default columnNum

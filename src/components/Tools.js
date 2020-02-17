@@ -3,7 +3,7 @@ import { ButtonGroup, Button } from '@material-ui/core'
 import { connect } from 'react-redux'
 import toolChange from '../actions/tool'
 
-function Tools({dispatch}, tool) {
+function Tools({dispatch}) {
 
     //CHANGE_TOOL
     const handleToolChange = (newTool) => {

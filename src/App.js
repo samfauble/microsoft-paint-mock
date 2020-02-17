@@ -2,9 +2,20 @@ import React from 'react';
 import './App.css';
 import Toolbar from './components/Toolbar'
 import Canvas from './components/Canvas'
+import { connect } from 'react-redux'
+import initialize from './actions/initialize'
 
 
-function App() {
+function App({dispatch}) {
+  
+  const square = [{
+    id: 0,
+    color: '#ffff',
+    nextTo: []
+  }]
+  
+  dispatch(initialize(square))
+
   return (
     <div className="App">
       <Toolbar />
@@ -13,9 +24,8 @@ function App() {
   );
 }
 
-export default App;
+export default connect()(App)
 
-//TODO: Implement color change functionality
-//TODO: Implement Canvas size functionality
+
 //TODO: Implement Pencil funcitonality 
 //TODO: Implement flood-fill funcitonality

@@ -6,7 +6,7 @@ import { Container } from '@material-ui/core'
 import { connect } from 'react-redux'
 import currentColor from '../actions/color'
 
-export function Toolbar({dispatch}, tool) {
+function Toolbar({dispatch}, tool) {
 
     const {color}=tool
     //CHANGE_COLOR

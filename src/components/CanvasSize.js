@@ -23,19 +23,19 @@ function CanvasSize({numRows, numColumns, dispatch}) {
     //CHANGE_ROW
     const handleRowChange = (event) => {
         const rowEvent = event.target.value
-        const rows = Number(rowEvent);
+        const rows = Number(rowEvent)
         const numSquares = rows * numColumns
         const list = makeSquares(numSquares, numColumns)
-        console.log(list)
         dispatch(rowNum(rowEvent, list))
     }
     //CHANGE_COLUMN
     const handleColumnChange = (event) => {
-        const columns = event.target.value
+        const columnEvent = event.target.value
+        const columns = Number(columnEvent)
         const numSquares = columns * numRows
         const list = makeSquares(numSquares, columns)
 
-        dispatch(columnNum(event.target.value, list))
+        dispatch(columnNum(columnEvent, list))
     }
 
     return (

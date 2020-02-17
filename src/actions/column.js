@@ -4,7 +4,7 @@ function columnNum(numColumns, columnSquares) {
     return {
         type: CHANGE_COLUMN,
         column: numColumns,
-        squares: columnSquares
+        columnSquares
     }
 }
 

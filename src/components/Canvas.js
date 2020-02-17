@@ -2,45 +2,40 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 
-export function Canvas(canvas) {
-    const {numRows, numColumns} = canvas
-
-    //Needed state: Canvas rows, Canvas columns, id & color of each square, current tool, current color
+function Canvas({numRows, numColumns, squares}) {
+    
         return (
             <div className='grid'
                 style={{
-                    gridTemplateColumns: `repeat(${numColumns}, 100)`,
-                    gridTemplateRows: `repeat(${numRows}, 100)`
+                    gridTemplateColumns: `repeat(${numColumns}, 100px)`,
+                    gridTemplateRows: `repeat(${numRows}, 100px)`
                 }}
             >
 
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-                <button className='csquare'>CSquare</button>
-            <button className='csquare'>CSquare</button>
+                {squares.map((square)=>{
+                    const id = square.id
+                    const color = square.color
+                    return(
+                    <div key={id}>
+                        <button 
+                            className='csquare'
+                            style={{'backgroundColor': `${color}`}}
+                        />
+                    </div>
+                    )
+                })}
             </div>
         )
 }
 
-export default connect()(Canvas)
+function mapStateToProps ({canvas}){
+    const {numRows, numColumns, squares} = canvas
+
+    return {
+        numRows,
+        numColumns,
+        squares
+    }
+}
+
+export default connect(mapStateToProps)(Canvas)

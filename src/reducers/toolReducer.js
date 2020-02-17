@@ -7,19 +7,19 @@ function toolReducer(state={}, action) {
     switch(action.type) {
         case INIT:
             return {
-                currentTool: 'pencil',
-                currentColor: "#f44336"
+                currentTool : 'pencil',
+                currentColor : "#f44336"
             }
         case CHANGE_COLOR:
             return {
                 ...state,
-                currentColor: action.color
+                currentColor : action.color
             }
 
         case CHANGE_TOOL:
             return {
                 ...state,
-                currentTool: action.tool
+                currentTool : action.tool
             }
 
         default:

@@ -6,9 +6,8 @@ import { Container } from '@material-ui/core'
 import { connect } from 'react-redux'
 import currentColor from '../actions/color'
 
-function Toolbar({dispatch}, tool) {
+function Toolbar({dispatch, color}) {
 
-    const {color}=tool
     //CHANGE_COLOR
     const handleColorChange = (colorString) => {
         dispatch(currentColor(colorString.hex))
@@ -16,12 +15,24 @@ function Toolbar({dispatch}, tool) {
 
     return (
         <Container>
-            <h1>Mock Paint</h1>
+            <h1>
+                Mock Paint
+            </h1>
             <Tools />
-            <CirclePicker value={color} onChangeComplete={handleColorChange} />
+            <CirclePicker 
+                value = {color} 
+                onChangeComplete = {handleColorChange} 
+            />
             <CanvasSize />
         </Container>
     )
 }
 
-export default connect()(Toolbar)
+function mapStateToProps ({tool}) {
+    const {color} = tool;
+    return {
+        color
+    }
+}
+
+export default connect(mapStateToProps)(Toolbar)

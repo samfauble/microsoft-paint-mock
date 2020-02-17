@@ -7,14 +7,18 @@ function Tools({dispatch}) {
 
     //CHANGE_TOOL
     const handleToolChange = (newTool) => {
-        dispatch(toolChange(newTool))
+        dispatch(toolChange(newTool));
     }
 
     return (
         <div>
             <ButtonGroup>
-                <Button onClick={()=>handleToolChange('pencil')}>Pencil</Button>
-                <Button onClick={()=>handleToolChange('flood')}>Flood-Fill</Button>
+                <Button onClick = {()=>handleToolChange('pencil')}>
+                    Pencil
+                </Button>
+                <Button onClick = {()=>handleToolChange('flood')}>
+                    Flood-Fill
+                </Button>
             </ButtonGroup>
         </div>
     )

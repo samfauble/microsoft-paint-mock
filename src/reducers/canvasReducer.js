@@ -15,16 +15,16 @@ function canvasReducer(state={}, action) {
             let {row, squares} = action
             return {
                 ...state,
-                    numRows: row,
-                    squares
+                numRows : row,
+                squares
             }
 
         case CHANGE_COLUMN:
             let {column, columnSquares} = action
             return {
                 ...state,
-                numColumns: column,
-                squares: columnSquares
+                numColumns : column,
+                squares : columnSquares
             }
 
         default:

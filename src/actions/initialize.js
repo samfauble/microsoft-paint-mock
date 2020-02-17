@@ -2,7 +2,7 @@ export const INIT = 'INIT'
 
 function initialize(square) {
     return {
-        type: INIT,
+        type : INIT,
         square,
     }
 }

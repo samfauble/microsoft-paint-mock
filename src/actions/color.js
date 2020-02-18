@@ -1,8 +1,8 @@
-export const CHANGE_COLOR = 'CHANGE_COLOR'
+export const CHANGE_SELECTED_COLOR = 'CHANGE_SELECTED_COLOR'
 
-function currentColor(color) {
+function currentColor (color) {
     return {
-        type: CHANGE_COLOR,
+        type: CHANGE_SELECTED_COLOR,
         color
     }
 }

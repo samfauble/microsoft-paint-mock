@@ -1,28 +1,29 @@
-import { CHANGE_TOOL } from '../actions/tool'
-import { CHANGE_COLOR } from '../actions/color'
+import { CHANGE_SELECTED_TOOL } from '../actions/tool'
+import { CHANGE_SELECTED_COLOR } from '../actions/color'
 import { INIT } from '../actions/initialize'
 
 
-function toolReducer(state={}, action) {
-    switch(action.type) {
-        case INIT:
+function toolReducer (state={}, action) {
+    switch (action.type) {
+        case INIT :
             return {
-                currentTool: 'pencil',
-                currentColor: "#f44336"
+                selectedTool : 'pencil',
+                selectedColor : "#f44336"
             }
-        case CHANGE_COLOR:
-            return {
-                ...state,
-                currentColor: action.color
-            }
-
-        case CHANGE_TOOL:
+        case CHANGE_SELECTED_COLOR :
+            const {color} = action
             return {
                 ...state,
-                currentTool: action.tool
+                selectedColor : color
             }
 
-        default:
+        case CHANGE_SELECTED_TOOL :
+            return {
+                ...state,
+                selectedTool : action.tool
+            }
+
+        default :
             return state;
     }
 }

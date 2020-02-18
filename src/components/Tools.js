@@ -3,21 +3,36 @@ import { ButtonGroup, Button } from '@material-ui/core'
 import { connect } from 'react-redux'
 import toolChange from '../actions/tool'
 
-function Tools({dispatch}) {
+function Tools({dispatch, selectedColor}) {
 
-    //CHANGE_TOOL
+    //EFFECT: Changes currently-selected tool
     const handleToolChange = (newTool) => {
-        dispatch(toolChange(newTool))
+        dispatch(toolChange(newTool));
     }
 
     return (
         <div>
             <ButtonGroup>
-                <Button onClick={()=>handleToolChange('pencil')}>Pencil</Button>
-                <Button onClick={()=>handleToolChange('flood')}>Flood-Fill</Button>
+                <Button 
+                    onClick = {() => handleToolChange('pencil')}
+                    style = {{color : `${selectedColor}`}}>
+                    Pencil
+                </Button>
+                <Button 
+                    onClick = {() => handleToolChange('flood')}
+                    style = {{color : `${selectedColor}`}}>
+                    Flood-Fill
+                </Button>
             </ButtonGroup>
         </div>
     )
 }
 
-export default connect()(Tools)
+const mapStateToProps = ({tool}) => {
+    const {selectedColor} = tool;
+    return {
+        selectedColor
+    }
+}
+
+export default connect(mapStateToProps)(Tools)

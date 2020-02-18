@@ -8,16 +8,11 @@ import initialize from './actions/initialize'
 
 function App({dispatch}) {
   
-  const square = [{
-    id: 0,
-    color: '#ffff',
-    nextTo: []
-  }]
-  
-  dispatch(initialize(square))
+  //Populate initial UI state
+  dispatch(initialize())
 
   return (
-    <div className="App">
+    <div className = "App">
       <Toolbar />
       <Canvas />
     </div>
@@ -26,6 +21,3 @@ function App({dispatch}) {
 
 export default connect()(App)
 
-
-//TODO: Implement Pencil funcitonality 
-//TODO: Implement flood-fill funcitonality

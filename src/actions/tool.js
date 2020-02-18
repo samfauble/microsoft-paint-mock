@@ -1,8 +1,8 @@
-export const CHANGE_TOOL = 'CHANGE_TOOL'
+export const CHANGE_SELECTED_TOOL = 'CHANGE_SELECTED_TOOL'
 
 function toolChange(tool) {
     return {
-        type: CHANGE_TOOL,
+        type: CHANGE_SELECTED_TOOL,
         tool
     }
 }

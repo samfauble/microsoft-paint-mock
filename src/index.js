@@ -9,7 +9,9 @@ import { bothReducers } from './reducers/bothReducers'
 import { Provider } from 'react-redux'
 
 const logger = createLogger();
-export const store = createStore(bothReducers, applyMiddleware(logger))
+
+//Redux store
+export const store = createStore (bothReducers, applyMiddleware (logger))
 
 ReactDOM.render(
     <Provider store={store}>

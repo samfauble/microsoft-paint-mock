@@ -1,6 +1,6 @@
 export const CHANGE_COLUMN = 'CHANGE_COLUMN'
 
-function columnNum(numColumns, columnSquares) {
+function columnNum (numColumns, columnSquares) {
     return {
         type: CHANGE_COLUMN,
         column: numColumns,

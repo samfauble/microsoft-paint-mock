@@ -6,22 +6,31 @@ import { Container } from '@material-ui/core'
 import { connect } from 'react-redux'
 import currentColor from '../actions/color'
 
-function Toolbar({dispatch}, tool) {
+function Toolbar({dispatch, selectedColor}) {
 
-    const {color}=tool
-    //CHANGE_COLOR
     const handleColorChange = (colorString) => {
         dispatch(currentColor(colorString.hex))
     }
 
     return (
         <Container>
-            <h1>Mock Paint</h1>
+            <h1>
+                Mock Paint
+            </h1>
             <Tools />
-            <CirclePicker value={color} onChangeComplete={handleColorChange} />
+            <CirclePicker 
+                value = {selectedColor} 
+                onChangeComplete = {handleColorChange} />
             <CanvasSize />
         </Container>
     )
 }
 
-export default connect()(Toolbar)
+const mapStateToProps = ({tool}) => {
+    const {selectedColor} = tool;
+    return {
+        selectedColor
+    }
+}
+
+export default connect(mapStateToProps)(Toolbar)

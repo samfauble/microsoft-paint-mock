@@ -4,53 +4,69 @@ import { connect } from 'react-redux'
 import columnNum from '../actions/column'
 import rowNum from '../actions/row'
 
-function CanvasSize({numRows, numColumns, dispatch}) {
 
-    const makeSquares = (squares, cols) =>{
-        const number = Number(cols)
-        const squareList = []
-        for(let i=0; i<=squares-1; i++){
+function CanvasSize ({numRows, numColumns, dispatch}) {
+
+    //EFFECT: Returns list of squares for canvas
+    const makeSquares = (squares, cols) => {
+        const numberCols = Number(cols);
+        const squareList = [];
+        for (let i = 0; i <= squares - 1; i++) {
             let square = {
-                id: i,
-                color: '#ffff',
-                nextTo:[i-1, i+1, i+number, i-number]
+                id : i,
+                color : '#ffffff',
+                nextTo : [i - 1, i + 1, i + numberCols, i - numberCols]
             }
-            squareList.push(square)
+            squareList.push(square);
         }
         return squareList;
     }
 
-    //CHANGE_ROW
+    //EFFECT: Changes number of rows and canvas square array
     const handleRowChange = (event) => {
-        const rowEvent = event.target.value
-        const rows = Number(rowEvent)
-        const numSquares = rows * numColumns
-        const list = makeSquares(numSquares, numColumns)
-        dispatch(rowNum(rowEvent, list))
-    }
-    //CHANGE_COLUMN
-    const handleColumnChange = (event) => {
-        const columnEvent = event.target.value
-        const columns = Number(columnEvent)
-        const numSquares = columns * numRows
-        const list = makeSquares(numSquares, columns)
+        const rowEvent = event.target.value;
+        const rows = Number(rowEvent);
+        const numSquares = rows * numColumns;
+        const list = makeSquares(numSquares, numColumns);
 
-        dispatch(columnNum(columnEvent, list))
+        dispatch(rowNum(rowEvent, list));
+    }
+
+    //EFFECT: Changes number of columns and canvas square array
+    const handleColumnChange = (event) => {
+        const columnEvent = event.target.value;
+        const columns = Number(columnEvent);
+        const numSquares = columns * numRows;
+        const list = makeSquares(numSquares, columns);
+
+        dispatch(columnNum(columnEvent, list));
     }
 
     return (
         <div>
             <form>
-                <label> Canvas Rows: </label> 
-                <TextField variant='filled' type='number' value={numRows} onChange={handleRowChange} />
-                <label> Canvas Columns: </label> 
-                <TextField variant='filled' type='number' value={numColumns} onChange={handleColumnChange} />
+                <label> 
+                    Canvas Rows: 
+                </label> 
+                <TextField 
+                    variant = 'filled' 
+                    type = 'number' 
+                    value = {numRows} 
+                    onChange = {handleRowChange} />
+                <label> 
+                    Canvas Columns: 
+                </label> 
+                <TextField 
+                    variant = 'filled' 
+                    type = 'number' 
+                    value = {numColumns} 
+                    onChange = {handleColumnChange} />
             </form>
         </div>
     )
 }
 
-function mapStateToProps ({canvas}) {
+const mapStateToProps = ({canvas}) => {
     const {numRows, numColumns} = canvas
     return {
         numRows, 

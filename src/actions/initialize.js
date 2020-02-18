@@ -1,9 +1,11 @@
 export const INIT = 'INIT'
 
-function initialize(square) {
+function initialize() {
     return {
         type: INIT,
-        square,
+        id: 0,
+        color: '#ffffff',
+        nextTo: []
     }
 }
 

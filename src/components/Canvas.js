@@ -37,4 +37,4 @@ const mapStateToProps = ({canvas}) => {
     }
 }
 
-export default connect(mapStateToProps)(Canvas)
+export default connect(mapStateToProps)(Canvas);

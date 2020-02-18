@@ -28,7 +28,6 @@ function CanvasSize ({numRows, numColumns, dispatch}) {
         const rows = Number(rowEvent);
         const numSquares = rows * numColumns;
         const list = makeSquares(numSquares, numColumns);
-
         dispatch(rowNum(rowEvent, list));
     }
 
@@ -43,26 +42,25 @@ function CanvasSize ({numRows, numColumns, dispatch}) {
     }
 
     return (
-        <div>
-            <form>
-                <label> 
-                    Canvas Rows: 
-                </label> 
-                <TextField 
-                    variant = 'filled' 
-                    type = 'number' 
-                    value = {numRows} 
-                    onChange = {handleRowChange} />
-                <label> 
-                    Canvas Columns: 
-                </label> 
-                <TextField 
-                    variant = 'filled' 
-                    type = 'number' 
-                    value = {numColumns} 
-                    onChange = {handleColumnChange} />
-            </form>
-        </div>
+        <form>
+            <label> 
+                Canvas Rows: 
+            </label> 
+            <TextField 
+                variant = 'filled' 
+                type = 'number' 
+                value = {numRows} 
+                onChange = {handleRowChange} />
+            <label> 
+                Canvas Columns: 
+            </label> 
+            <TextField 
+                variant = 'filled' 
+                type = 'number' 
+                value = {numColumns} 
+                onChange = {handleColumnChange} />
+        </form>
+    
     )
 }
 

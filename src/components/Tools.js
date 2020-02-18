@@ -11,7 +11,7 @@ function Tools({dispatch, selectedColor}) {
     }
 
     return (
-        <div>
+        <React.Fragment>
             <ButtonGroup>
                 <Button 
                     onClick = {() => handleToolChange('pencil')}
@@ -24,7 +24,7 @@ function Tools({dispatch, selectedColor}) {
                     Flood-Fill
                 </Button>
             </ButtonGroup>
-        </div>
+        </React.Fragment>
     )
 }
 

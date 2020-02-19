@@ -1,8 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { squareColor } from '../actions/squareColor'
 
 
-function Canvas ({numRows, numColumns, squares}) {
+function Canvas ({numRows, numColumns, squares, selectedColor, selectedTool, dispatch}) {
+
+    const handleSquareChange = (id) => {
+        if (selectedTool === 'pencil') {
+            dispatch(squareColor(id, selectedColor));
+        }
+    }
     
     return (
         <div className = 'grid'
@@ -12,15 +19,15 @@ function Canvas ({numRows, numColumns, squares}) {
             }}>
             
             {/* Render squares array onto UI */}
-            {squares.map((square) => {
-                const id = square.id;
-                const color = square.color;
+            {Object.keys(squares).map((square) => {
+                const id = square;
+                const color = squares[id].color;
                 return (
-                    <div key = {id}>
-                        <button 
-                            className='csquare'
-                            style={{'backgroundColor' : `${color}`}} />
-                    </div>
+                    <button
+                        key = {id} 
+                        className = 'csquare'
+                        style = {{'backgroundColor' : `${color}`}}
+                        onClick = {() => handleSquareChange(id)} />
                 )
             })}
 
@@ -28,12 +35,15 @@ function Canvas ({numRows, numColumns, squares}) {
     )
 }
 
-const mapStateToProps = ({canvas}) => {
+const mapStateToProps = ({canvas, tool}) => {
     const {numRows, numColumns, squares} = canvas;
+    const {selectedColor, selectedTool} = tool
     return {
         numRows,
         numColumns,
-        squares
+        squares,
+        selectedColor,
+        selectedTool
     }
 }
 

@@ -10,14 +10,14 @@ function CanvasSize ({numRows, numColumns, dispatch}) {
     //EFFECT: Returns list of squares for canvas
     const makeSquares = (squares, cols) => {
         const numberCols = Number(cols);
-        const squareList = [];
+        const squareList = {};
         for (let i = 0; i <= squares - 1; i++) {
             let square = {
                 id : i,
                 color : '#ffffff',
                 nextTo : [i - 1, i + 1, i + numberCols, i - numberCols]
             }
-            squareList.push(square);
+            squareList[i] = square;
         }
         return squareList;
     }

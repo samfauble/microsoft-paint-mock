@@ -46,12 +46,12 @@ function CanvasSize ({numRows, numColumns, dispatch}) {
             <label> 
                 Canvas Rows: 
             </label> 
-            <TextField 
+            <TextField
                 variant = 'filled' 
                 type = 'number' 
                 value = {numRows} 
                 onChange = {handleRowChange} />
-            <label> 
+            <label>
                 Canvas Columns: 
             </label> 
             <TextField 
@@ -71,6 +71,5 @@ const mapStateToProps = ({canvas}) => {
         numColumns
     }
 }
-
 
 export default connect(mapStateToProps)(CanvasSize)

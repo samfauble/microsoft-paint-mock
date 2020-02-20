@@ -35,7 +35,9 @@
 }
 
 .grid {
-  display: grid;
+  margin : 10px;
+  display : grid;
+  justify-content : center;
 }
 
 .MuiButtonGroup-root {
